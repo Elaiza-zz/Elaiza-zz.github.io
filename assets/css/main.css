@@ -41,7 +41,7 @@
 
 .light-background {
   --background-color: #f9f9f9;
-  --surface-color: #ffffff;
+  --surface-color: #f9f7f7;
 }
 
 .dark-background {
@@ -1457,6 +1457,8 @@ section,
 .starter-section {
   /* Add your styles here */
 }
+
+
 .circle {
   height: 24px;
   width: 24px;
