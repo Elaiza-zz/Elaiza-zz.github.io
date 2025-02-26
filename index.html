@@ -57,6 +57,90 @@
   <div class="circle"></div>
 
 
+  <script>
+  const coords = { x: 0, y: 0 };
+const circles = document.querySelectorAll(".circle");
+
+const colors = [
+  "#ffdde1", // Soft Baby Pink  
+  "#ffccd5", // Light Blush Pink  
+  "#ffb3c1", // Pastel Pink  
+  "#ff99b6", // Soft Rose Pink  
+  "#ff85a2", // Light Hot Pink  
+  "#ff7090", // Medium Pink  
+  "#ff5a7d", // Vibrant Pink  
+  "#ff4770", // Darker Vibrant Pink  
+  "#ff2e63", // Deep Pinkish Red  
+  "#e6265b", // Reddish Pink  
+  "#d11f5b", // Rose Red  
+  "#ba195c", // Dark Rose  
+  "#a3125c", // Magenta Pink  
+  "#8f0c5d", // Plum Pink  
+  "#7a065d", // Dark Magenta  
+  "#66005d", // Deep Purple-Pink  
+  "#55005c", // Purple with Pink Tone  
+  "#45005b", // Darker Purple  
+  "#35005a", // Even Darker Purple  
+  "#250059", // Very Dark Purple  
+  "#150058", // Almost Black Purple  
+  "#0a0057"  // Deepest Purple  
+];
+
+
+circles.forEach(function (circle, index) {
+  circle.x = 0;
+  circle.y = 0;
+  circle.style.backgroundColor = colors[index % colors.length];
+});
+
+window.addEventListener("mousemove", function(e){
+  coords.x = e.clientX;
+  coords.y = e.clientY;
+  
+});
+
+function animateCircles() {
+  
+  let x = coords.x;
+  let y = coords.y;
+  
+  circles.forEach(function (circle, index) {
+    circle.style.left = x - 12 + "px";
+    circle.style.top = y - 12 + "px";
+    
+    circle.style.scale = (circles.length - index) / circles.length;
+    
+    circle.x = x;
+    circle.y = y;
+
+    const nextCircle = circles[index + 1] || circles[0];
+    x += (nextCircle.x - x) * 0.3;
+    y += (nextCircle.y - y) * 0.3;
+  });
+ 
+  requestAnimationFrame(animateCircles);
+}
+
+animateCircles();
+
+</script>
+
+<style> 
+.circle {
+  height: 24px;
+  width: 24px;
+  border-radius: 50%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  z-index: 99999999;
+  opacity: 0.8;
+  transition: transform 0.1s ease-out, opacity 0.1s ease-out;
+  filter: blur(4px);
+}
+</style>
+
 <body class="index-page">
 
   <header id="header" class="header d-flex flex-column justify-content-center">
@@ -541,7 +625,7 @@
   <div id="preloader"></div>
 
   <!-- Vendor JS Files -->
-  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></>
   <script src="assets/vendor/php-email-form/validate.js"></script>
   <script src="assets/vendor/aos/aos.js"></script>
   <script src="assets/vendor/typed.js/typed.umd.js"></script>
