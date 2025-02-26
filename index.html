@@ -139,6 +139,23 @@ animateCircles();
   transition: transform 0.1s ease-out, opacity 0.1s ease-out;
   filter: blur(4px);
 }
+
+body {
+
+  cursor: url("assets/img/cursor/icons8-cursor-resize.png"), auto;
+
+}
+
+a,
+button,
+.pointer-class {
+  /* Targeting elements that use pointer cursor */
+  cursor: url("assets/img/cursor/icons-hand-cursor-resize.png")0 0, pointer;
+  
+} 
+
+
+
 </style>
 
 <body class="index-page">
@@ -625,7 +642,7 @@ animateCircles();
   <div id="preloader"></div>
 
   <!-- Vendor JS Files -->
-  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></>
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
   <script src="assets/vendor/php-email-form/validate.js"></script>
   <script src="assets/vendor/aos/aos.js"></script>
   <script src="assets/vendor/typed.js/typed.umd.js"></script>
